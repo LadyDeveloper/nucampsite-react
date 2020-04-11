@@ -8,7 +8,7 @@ import { Promotions } from './promotions';
 import { Comments } from './comments';
 import { InitialFeedback } from './forms';
 
-export const configureStore = () => {
+export const ConfigureStore = () => {
     const store = createStore(
         combineReducers({
             campsites: Campsites,
