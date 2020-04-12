@@ -5,7 +5,7 @@ import { baseUrl } from '../shared/baseUrl';
 import { FadeTransform } from 'react-animation-components';
 
 function RenderCard( { item, isLoading, errMess }){
-    const returnName = console.log('Item is ' + {item});
+    console.log('Item is' + JSON.stringify(item));
     if(isLoading){
         return (
             <Loading />
@@ -25,7 +25,7 @@ function RenderCard( { item, isLoading, errMess }){
             <Card>
                 <CardImg src={baseUrl + item.image} alt={item.name} />
                 <CardBody>
-                    <CardTitle>{item.name} {returnName}</CardTitle>
+                    <CardTitle>{item.name}</CardTitle>
                     <CardText>{item.description}</CardText>
                 </CardBody>
             </Card>
@@ -52,7 +52,11 @@ function Home(props){
                     />
                 </div>
                 <div className="col-md m-1">
-                    <RenderCard item={props.partner} />
+                    <RenderCard 
+                        item={props.partner} 
+                        isLoading={props.partnerLoading}
+                        errMess={props.partnerErrMess}
+                    />
                 </div>
             </div>
         </div>
